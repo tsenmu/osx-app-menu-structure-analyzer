@@ -1,0 +1,381 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2FDB3EE61DE61BC8009D8D6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FDB3EE51DE61BC8009D8D6E /* AppDelegate.m */; };
+		2FDB3EE91DE61BC8009D8D6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FDB3EE81DE61BC8009D8D6E /* main.m */; };
+		2FDB3EEB1DE61BC8009D8D6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FDB3EEA1DE61BC8009D8D6E /* Assets.xcassets */; };
+		2FDB3EEE1DE61BC8009D8D6E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FDB3EEC1DE61BC8009D8D6E /* MainMenu.xib */; };
+		2FDB3EF61DE61D8B009D8D6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FDB3EF51DE61D8B009D8D6E /* Cocoa.framework */; };
+		C93872E443ABF868DBF54315 /* libPods-MenuAnalyzer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B28EDC69FD7673947E9B353 /* libPods-MenuAnalyzer.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0BA2E2E273702CE9B5DD9C50 /* Pods-MenuAnalyzer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MenuAnalyzer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MenuAnalyzer/Pods-MenuAnalyzer.debug.xcconfig"; sourceTree = "<group>"; };
+		1B28EDC69FD7673947E9B353 /* libPods-MenuAnalyzer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MenuAnalyzer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FDB3EE11DE61BC8009D8D6E /* MenuAnalyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuAnalyzer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FDB3EE41DE61BC8009D8D6E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2FDB3EE51DE61BC8009D8D6E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2FDB3EE81DE61BC8009D8D6E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2FDB3EEA1DE61BC8009D8D6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2FDB3EED1DE61BC8009D8D6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2FDB3EEF1DE61BC8009D8D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FDB3EF51DE61D8B009D8D6E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		2FDB3EF71DE61D91009D8D6E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		7E4614426EB78E91A4AE1935 /* Pods-MenuAnalyzer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MenuAnalyzer.release.xcconfig"; path = "Pods/Target Support Files/Pods-MenuAnalyzer/Pods-MenuAnalyzer.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2FDB3EDE1DE61BC8009D8D6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FDB3EF61DE61D8B009D8D6E /* Cocoa.framework in Frameworks */,
+				C93872E443ABF868DBF54315 /* libPods-MenuAnalyzer.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2FDB3ED81DE61BC8009D8D6E = {
+			isa = PBXGroup;
+			children = (
+				2FDB3EE31DE61BC8009D8D6E /* MenuAnalyzer */,
+				2FDB3EE21DE61BC8009D8D6E /* Products */,
+				829C2D3DCC062810BD8F6A5E /* Pods */,
+				B0091481463BE38207103A58 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2FDB3EE21DE61BC8009D8D6E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2FDB3EE11DE61BC8009D8D6E /* MenuAnalyzer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2FDB3EE31DE61BC8009D8D6E /* MenuAnalyzer */ = {
+			isa = PBXGroup;
+			children = (
+				2FDB3EE41DE61BC8009D8D6E /* AppDelegate.h */,
+				2FDB3EE51DE61BC8009D8D6E /* AppDelegate.m */,
+				2FDB3EEA1DE61BC8009D8D6E /* Assets.xcassets */,
+				2FDB3EEC1DE61BC8009D8D6E /* MainMenu.xib */,
+				2FDB3EEF1DE61BC8009D8D6E /* Info.plist */,
+				2FDB3EE71DE61BC8009D8D6E /* Supporting Files */,
+			);
+			path = MenuAnalyzer;
+			sourceTree = "<group>";
+		};
+		2FDB3EE71DE61BC8009D8D6E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2FDB3EE81DE61BC8009D8D6E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		829C2D3DCC062810BD8F6A5E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0BA2E2E273702CE9B5DD9C50 /* Pods-MenuAnalyzer.debug.xcconfig */,
+				7E4614426EB78E91A4AE1935 /* Pods-MenuAnalyzer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B0091481463BE38207103A58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2FDB3EF71DE61D91009D8D6E /* Carbon.framework */,
+				2FDB3EF51DE61D8B009D8D6E /* Cocoa.framework */,
+				1B28EDC69FD7673947E9B353 /* libPods-MenuAnalyzer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2FDB3EE01DE61BC8009D8D6E /* MenuAnalyzer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FDB3EF21DE61BC8009D8D6E /* Build configuration list for PBXNativeTarget "MenuAnalyzer" */;
+			buildPhases = (
+				E0477FA8751A9952F095D7D9 /* [CP] Check Pods Manifest.lock */,
+				2FDB3EDD1DE61BC8009D8D6E /* Sources */,
+				2FDB3EDE1DE61BC8009D8D6E /* Frameworks */,
+				2FDB3EDF1DE61BC8009D8D6E /* Resources */,
+				F271D8AEF96D69D180AC4D59 /* [CP] Embed Pods Frameworks */,
+				C56A0B6F5729FF6B3F3162EC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MenuAnalyzer;
+			productName = MenuAnalyzer;
+			productReference = 2FDB3EE11DE61BC8009D8D6E /* MenuAnalyzer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2FDB3ED91DE61BC8009D8D6E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Jingjie Zheng";
+				TargetAttributes = {
+					2FDB3EE01DE61BC8009D8D6E = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2FDB3EDC1DE61BC8009D8D6E /* Build configuration list for PBXProject "MenuAnalyzer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2FDB3ED81DE61BC8009D8D6E;
+			productRefGroup = 2FDB3EE21DE61BC8009D8D6E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2FDB3EE01DE61BC8009D8D6E /* MenuAnalyzer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2FDB3EDF1DE61BC8009D8D6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FDB3EEB1DE61BC8009D8D6E /* Assets.xcassets in Resources */,
+				2FDB3EEE1DE61BC8009D8D6E /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C56A0B6F5729FF6B3F3162EC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MenuAnalyzer/Pods-MenuAnalyzer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0477FA8751A9952F095D7D9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F271D8AEF96D69D180AC4D59 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MenuAnalyzer/Pods-MenuAnalyzer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2FDB3EDD1DE61BC8009D8D6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FDB3EE91DE61BC8009D8D6E /* main.m in Sources */,
+				2FDB3EE61DE61BC8009D8D6E /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2FDB3EEC1DE61BC8009D8D6E /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FDB3EED1DE61BC8009D8D6E /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2FDB3EF01DE61BC8009D8D6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2FDB3EF11DE61BC8009D8D6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2FDB3EF31DE61BC8009D8D6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0BA2E2E273702CE9B5DD9C50 /* Pods-MenuAnalyzer.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MenuAnalyzer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tsenmu.MenuAnalyzer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2FDB3EF41DE61BC8009D8D6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E4614426EB78E91A4AE1935 /* Pods-MenuAnalyzer.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MenuAnalyzer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tsenmu.MenuAnalyzer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2FDB3EDC1DE61BC8009D8D6E /* Build configuration list for PBXProject "MenuAnalyzer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FDB3EF01DE61BC8009D8D6E /* Debug */,
+				2FDB3EF11DE61BC8009D8D6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FDB3EF21DE61BC8009D8D6E /* Build configuration list for PBXNativeTarget "MenuAnalyzer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FDB3EF31DE61BC8009D8D6E /* Debug */,
+				2FDB3EF41DE61BC8009D8D6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2FDB3ED91DE61BC8009D8D6E /* Project object */;
+}
