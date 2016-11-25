@@ -14,6 +14,7 @@
 		2FDB3EF61DE61D8B009D8D6E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FDB3EF51DE61D8B009D8D6E /* Cocoa.framework */; };
 		2FDB3EFC1DE6538C009D8D6E /* MenuAnalyzerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FDB3EFA1DE6538C009D8D6E /* MenuAnalyzerViewController.m */; };
 		2FDB3EFD1DE6538C009D8D6E /* MenuAnalyzerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FDB3EFB1DE6538C009D8D6E /* MenuAnalyzerViewController.xib */; };
+		2FDB3F031DE7E5FD009D8D6E /* UIElementUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FDB3F021DE7E5FD009D8D6E /* UIElementUtilities.m */; };
 		C93872E443ABF868DBF54315 /* libPods-MenuAnalyzer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B28EDC69FD7673947E9B353 /* libPods-MenuAnalyzer.a */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,8 @@
 		2FDB3EF91DE6538C009D8D6E /* MenuAnalyzerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuAnalyzerViewController.h; sourceTree = "<group>"; };
 		2FDB3EFA1DE6538C009D8D6E /* MenuAnalyzerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuAnalyzerViewController.m; sourceTree = "<group>"; };
 		2FDB3EFB1DE6538C009D8D6E /* MenuAnalyzerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuAnalyzerViewController.xib; sourceTree = "<group>"; };
+		2FDB3F011DE7E5FD009D8D6E /* UIElementUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIElementUtilities.h; sourceTree = "<group>"; };
+		2FDB3F021DE7E5FD009D8D6E /* UIElementUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIElementUtilities.m; sourceTree = "<group>"; };
 		7E4614426EB78E91A4AE1935 /* Pods-MenuAnalyzer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MenuAnalyzer.release.xcconfig"; path = "Pods/Target Support Files/Pods-MenuAnalyzer/Pods-MenuAnalyzer.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +81,8 @@
 				2FDB3EFA1DE6538C009D8D6E /* MenuAnalyzerViewController.m */,
 				2FDB3EFB1DE6538C009D8D6E /* MenuAnalyzerViewController.xib */,
 				2FDB3EE71DE61BC8009D8D6E /* Supporting Files */,
+				2FDB3F011DE7E5FD009D8D6E /* UIElementUtilities.h */,
+				2FDB3F021DE7E5FD009D8D6E /* UIElementUtilities.m */,
 			);
 			path = MenuAnalyzer;
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 				2FDB3EE91DE61BC8009D8D6E /* main.m in Sources */,
 				2FDB3EE61DE61BC8009D8D6E /* AppDelegate.m in Sources */,
 				2FDB3EFC1DE6538C009D8D6E /* MenuAnalyzerViewController.m in Sources */,
+				2FDB3F031DE7E5FD009D8D6E /* UIElementUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

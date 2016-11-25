@@ -10,4 +10,6 @@
 
 @interface MenuAnalyzerViewController : NSViewController
 
+@property (unsafe_unretained) IBOutlet NSTextView *textView;
+
 @end
