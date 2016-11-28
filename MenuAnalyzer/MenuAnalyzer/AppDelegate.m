@@ -24,8 +24,8 @@ static NSString * const kApplicationName = @"MenuAnalyzer";
 @property (nonatomic, strong) NSPopover *popover;
 @property (nonatomic, strong) MenuAnalyzerViewController *menuAnalyzerViewController;
 @property (nonatomic, assign) AXUIElementRef systemWideElement;
-@property (nonatomic, strong) NSMutableString* currentOutput;
-
+@property (nonatomic, strong) NSMutableString *currentOutput;
+@property (nonatomic, strong) NSMutableString *currentAppTitle;
 
 @end
 
@@ -51,6 +51,7 @@ static NSString * const kApplicationName = @"MenuAnalyzer";
     _systemWideElement = AXUIElementCreateSystemWide();
 
     _currentOutput = [[NSMutableString alloc] init];
+    _currentAppTitle = [[NSMutableString alloc] init];
 }
 
 
@@ -72,6 +73,8 @@ static NSString * const kApplicationName = @"MenuAnalyzer";
     }
     NSString* elementTitle = [UIElementUtilities titleOfUIElement:element];
     NSString* elementRole = [UIElementUtilities roleOfUIElement:element];
+    
+//    NSLog(@"%@", [UIElementUtilities stringDescriptionOfUIElement:element]);
     if ([elementTitle isEqualToString:@"Apple"]) {
         return;
     }
@@ -98,18 +101,52 @@ static NSString * const kApplicationName = @"MenuAnalyzer";
             [self getMenuStructure:item level:currentLevel];
 
         }
-        
     } else if (CFGetTypeID(element) == AXUIElementGetTypeID()) {
         NSMutableString* prependSpaces = [[NSMutableString alloc] init];
         for (int i = 0; i < currentLevel; ++i) {
-            [prependSpaces appendString:@"----"];
+            [prependSpaces appendString:@"\t"];
         }
         
         AXUIElementRef children = (__bridge AXUIElementRef)[UIElementUtilities valueOfAttribute:(__bridge NSString *)kAXChildrenAttribute ofUIElement:element];
+        AXUIElementRef cmdCharElement = (__bridge AXUIElementRef)[UIElementUtilities valueOfAttribute:(__bridge NSString *)kAXMenuItemCmdCharAttribute ofUIElement:element];
+        AXUIElementRef cmdGlyphElement = (__bridge AXUIElementRef)[UIElementUtilities valueOfAttribute:(__bridge NSString *)kAXMenuItemCmdGlyphAttribute ofUIElement:element];
+        AXUIElementRef cmdVirtualKeyElement = (__bridge AXUIElementRef)[UIElementUtilities valueOfAttribute:(__bridge NSString *)kAXMenuItemCmdVirtualKeyAttribute ofUIElement:element];
+        AXUIElementRef cmdModifiersElement = (__bridge AXUIElementRef)[UIElementUtilities valueOfAttribute:(__bridge NSString *)kAXMenuItemCmdModifiersAttribute ofUIElement:element];
+        
+        NSMutableString* keyboardShortcut = [[NSMutableString alloc] init];
+        if (cmdCharElement != nil) {
+            [keyboardShortcut appendFormat:@"[%@]", cmdCharElement];
+        }
+        
+        if ([keyboardShortcut isEqualToString:@""] && cmdGlyphElement != nil) {
+            [keyboardShortcut appendFormat:@"[%@]", cmdGlyphElement];
+        }
+        
+        if ([keyboardShortcut isEqualToString:@""] && cmdVirtualKeyElement != nil) {
+            [keyboardShortcut appendFormat:@"[%@]", cmdVirtualKeyElement];
+        }
+        
+        if (![keyboardShortcut isEqualToString:@""] && cmdModifiersElement != nil) {
+            unsigned int mask = (unsigned int)[[NSString stringWithFormat:@"%@", cmdModifiersElement] integerValue];
+            
+            if (!(mask & kAXMenuItemModifierNoCommand)) {
+                [keyboardShortcut appendFormat:@"[Command"];
+                if (mask & kAXMenuItemModifierShift) {
+                    [keyboardShortcut appendFormat:@"+Shift"];
+                }
+                if (mask & kAXMenuItemModifierControl) {
+                    [keyboardShortcut appendFormat:@"+Control"];
+                }
+                if (mask & kAXMenuItemModifierOption) {
+                    [keyboardShortcut appendFormat:@"+Option"];
+                }
+                [keyboardShortcut appendFormat:@"]"];
+            }
+        }
         
         if (![elementRole isEqualToString:@"AXMenuBar"] &&
             ![elementRole isEqualToString:@"AXMenu"]) {
-            [_currentOutput appendString:[NSString stringWithFormat:@"%@%@ [%@]\n", prependSpaces, elementTitle, elementRole]];
+            [_currentOutput appendString:[NSString stringWithFormat:@"%@%@\t%@\n", prependSpaces, elementTitle, keyboardShortcut]];
             [self getMenuStructure:children level:currentLevel + 1];
         } else {
             [self getMenuStructure:children level:currentLevel];
@@ -128,6 +165,7 @@ static NSString * const kApplicationName = @"MenuAnalyzer";
     }
     
     NSString* appTitle = [UIElementUtilities titleOfUIElement:app];
+    [_currentAppTitle setString:appTitle];
     
     AXUIElementRef menuBar = (__bridge AXUIElementRef)[UIElementUtilities valueOfAttribute:NSAccessibilityMenuBarAttribute
                              ofUIElement:app];
@@ -140,7 +178,18 @@ static NSString * const kApplicationName = @"MenuAnalyzer";
     [self getMenuStructure:menuBar level:0];
     
     [_menuAnalyzerViewController.textView setString:_currentOutput];
-    NSLog(@"%@", _currentOutput);
+    [self generateOutput];
+}
+
+- (void)generateOutput {
+    NSString *documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString* outputDirectory = [NSString stringWithFormat:@"%@/%@/", documentsDirectory, kApplicationName];
+    [[NSFileManager defaultManager] createDirectoryAtPath:outputDirectory withIntermediateDirectories:YES attributes:nil error:nil];
+    
+    NSString* outputPath = [NSString stringWithFormat:@"%@%@.txt", outputDirectory, _currentAppTitle];
+    
+    [[NSFileManager defaultManager] createFileAtPath:outputPath contents:nil attributes:nil];
+    [_currentOutput writeToFile:outputPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
 }
 
 - (void)analyzeMenuStructure {
