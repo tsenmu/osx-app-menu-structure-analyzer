@@ -13,6 +13,7 @@
 
 #import "MenuAnalyzerViewController.h"
 #import "UIElementUtilities.h"
+#import "KeyCodeUtilities.h"
 
 static NSString * const kApplicationName = @"MenuAnalyzer";
 
@@ -73,8 +74,7 @@ static NSString * const kApplicationName = @"MenuAnalyzer";
     }
     NSString* elementTitle = [UIElementUtilities titleOfUIElement:element];
     NSString* elementRole = [UIElementUtilities roleOfUIElement:element];
-    
-//    NSLog(@"%@", [UIElementUtilities stringDescriptionOfUIElement:element]);
+
     if ([elementTitle isEqualToString:@"Apple"]) {
         return;
     }
@@ -107,46 +107,63 @@ static NSString * const kApplicationName = @"MenuAnalyzer";
             [prependSpaces appendString:@"\t"];
         }
         
+//        NSLog(@"%@", [UIElementUtilities stringDescriptionOfUIElement:element]);
+        
         AXUIElementRef children = (__bridge AXUIElementRef)[UIElementUtilities valueOfAttribute:(__bridge NSString *)kAXChildrenAttribute ofUIElement:element];
         AXUIElementRef cmdCharElement = (__bridge AXUIElementRef)[UIElementUtilities valueOfAttribute:(__bridge NSString *)kAXMenuItemCmdCharAttribute ofUIElement:element];
         AXUIElementRef cmdGlyphElement = (__bridge AXUIElementRef)[UIElementUtilities valueOfAttribute:(__bridge NSString *)kAXMenuItemCmdGlyphAttribute ofUIElement:element];
         AXUIElementRef cmdVirtualKeyElement = (__bridge AXUIElementRef)[UIElementUtilities valueOfAttribute:(__bridge NSString *)kAXMenuItemCmdVirtualKeyAttribute ofUIElement:element];
         AXUIElementRef cmdModifiersElement = (__bridge AXUIElementRef)[UIElementUtilities valueOfAttribute:(__bridge NSString *)kAXMenuItemCmdModifiersAttribute ofUIElement:element];
         
-        NSMutableString* keyboardShortcut = [[NSMutableString alloc] init];
+        
+        NSMutableString* keyboardShortcutChar = [[NSMutableString alloc] init];
         if (cmdCharElement != nil) {
-            [keyboardShortcut appendFormat:@"[%@]", cmdCharElement];
+            [keyboardShortcutChar appendFormat:@"%@", cmdCharElement];
+        }
+        if ([keyboardShortcutChar isEqualToString:@""] && cmdGlyphElement != nil) {
+            long glyphCode = [[NSString stringWithFormat:@"%@", cmdGlyphElement] integerValue];
+            NSString* glyphStr = [KeyCodeUtilities convertGlyphCodeToString:glyphCode];
+            if (glyphStr != nil) {
+                [keyboardShortcutChar appendFormat:@"%@", glyphStr];
+            } else {
+                [keyboardShortcutChar appendFormat:@"[Glyph-%ld]", glyphCode];
+            }
+        }
+        if ([keyboardShortcutChar isEqualToString:@""] && cmdVirtualKeyElement != nil) {
+            [keyboardShortcutChar appendFormat:@"[Virtual-Key-%@]", cmdVirtualKeyElement];
         }
         
-        if ([keyboardShortcut isEqualToString:@""] && cmdGlyphElement != nil) {
-            [keyboardShortcut appendFormat:@"[%@]", cmdGlyphElement];
-        }
+        NSMutableString* keyboardShortcutModifiers = [[NSMutableString alloc] init];
         
-        if ([keyboardShortcut isEqualToString:@""] && cmdVirtualKeyElement != nil) {
-            [keyboardShortcut appendFormat:@"[%@]", cmdVirtualKeyElement];
-        }
-        
-        if (![keyboardShortcut isEqualToString:@""] && cmdModifiersElement != nil) {
+        if (![keyboardShortcutChar isEqualToString:@""] && cmdModifiersElement != nil) {
             unsigned int mask = (unsigned int)[[NSString stringWithFormat:@"%@", cmdModifiersElement] integerValue];
-            
-            if (!(mask & kAXMenuItemModifierNoCommand)) {
-                [keyboardShortcut appendFormat:@"[Command"];
-                if (mask & kAXMenuItemModifierShift) {
-                    [keyboardShortcut appendFormat:@"+Shift"];
-                }
+//            [keyboardShortcutModifiers appendFormat:@"%d", mask];
+            if (mask != 8) {
                 if (mask & kAXMenuItemModifierControl) {
-                    [keyboardShortcut appendFormat:@"+Control"];
+                    [keyboardShortcutModifiers appendFormat:@"⌃"];
                 }
                 if (mask & kAXMenuItemModifierOption) {
-                    [keyboardShortcut appendFormat:@"+Option"];
+                    [keyboardShortcutModifiers appendFormat:@"⌥"];
                 }
-                [keyboardShortcut appendFormat:@"]"];
+                if (mask & kAXMenuItemModifierShift) {
+                    [keyboardShortcutModifiers appendFormat:@"⇧"];
+                }
+                if (!(mask & kAXMenuItemModifierNoCommand)) {
+                    [keyboardShortcutModifiers appendFormat:@"⌘"];
+                }
             }
+        }
+        
+
+        
+        NSString* keyboardShortcut = @"";
+        if (![keyboardShortcutChar isEqualToString:@""] || ![keyboardShortcutModifiers isEqualToString:@""]) {
+            keyboardShortcut = [NSString stringWithFormat:@"[%@%@]", keyboardShortcutModifiers, keyboardShortcutChar];
         }
         
         if (![elementRole isEqualToString:@"AXMenuBar"] &&
             ![elementRole isEqualToString:@"AXMenu"]) {
-            [_currentOutput appendString:[NSString stringWithFormat:@"%@%@\t%@\n", prependSpaces, elementTitle, keyboardShortcut]];
+            [_currentOutput appendString:[NSString stringWithFormat:@"%@[%@]\t\t%@\n", prependSpaces, elementTitle, keyboardShortcut]];
             [self getMenuStructure:children level:currentLevel + 1];
         } else {
             [self getMenuStructure:children level:currentLevel];

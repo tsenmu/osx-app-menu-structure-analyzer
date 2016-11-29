@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FA9DD971DEE0472006EE4F4 /* KeyCodeUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA9DD961DEE0472006EE4F4 /* KeyCodeUtilities.m */; };
 		2FDB3EE61DE61BC8009D8D6E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FDB3EE51DE61BC8009D8D6E /* AppDelegate.m */; };
 		2FDB3EE91DE61BC8009D8D6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FDB3EE81DE61BC8009D8D6E /* main.m */; };
 		2FDB3EEB1DE61BC8009D8D6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FDB3EEA1DE61BC8009D8D6E /* Assets.xcassets */; };
@@ -21,6 +22,8 @@
 /* Begin PBXFileReference section */
 		0BA2E2E273702CE9B5DD9C50 /* Pods-MenuAnalyzer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MenuAnalyzer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MenuAnalyzer/Pods-MenuAnalyzer.debug.xcconfig"; sourceTree = "<group>"; };
 		1B28EDC69FD7673947E9B353 /* libPods-MenuAnalyzer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MenuAnalyzer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FA9DD951DEE0472006EE4F4 /* KeyCodeUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyCodeUtilities.h; sourceTree = "<group>"; };
+		2FA9DD961DEE0472006EE4F4 /* KeyCodeUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyCodeUtilities.m; sourceTree = "<group>"; };
 		2FDB3EE11DE61BC8009D8D6E /* MenuAnalyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuAnalyzer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FDB3EE41DE61BC8009D8D6E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2FDB3EE51DE61BC8009D8D6E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -83,6 +86,8 @@
 				2FDB3EE71DE61BC8009D8D6E /* Supporting Files */,
 				2FDB3F011DE7E5FD009D8D6E /* UIElementUtilities.h */,
 				2FDB3F021DE7E5FD009D8D6E /* UIElementUtilities.m */,
+				2FA9DD951DEE0472006EE4F4 /* KeyCodeUtilities.h */,
+				2FA9DD961DEE0472006EE4F4 /* KeyCodeUtilities.m */,
 			);
 			path = MenuAnalyzer;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 				2FDB3EE61DE61BC8009D8D6E /* AppDelegate.m in Sources */,
 				2FDB3EFC1DE6538C009D8D6E /* MenuAnalyzerViewController.m in Sources */,
 				2FDB3F031DE7E5FD009D8D6E /* UIElementUtilities.m in Sources */,
+				2FA9DD971DEE0472006EE4F4 /* KeyCodeUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
